@@ -216,12 +216,3 @@ def draw_mandala():
 draw_mandala()
 
 """
-Hope this lab will be helpful to your project 1 - Artistic Turtle Drawing.
-Have fun!
-
-If you have any course feedback for the instructor, feel free to input here:
-https://comp115-bravo.github.io/
-
-Please note that you don't need to submit your github link of your every lab,
-as long as you get marks for your labs, Alice knows your GitHub link. Just to
-save you a tiny bit of time.
