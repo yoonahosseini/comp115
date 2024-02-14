@@ -1,0 +1,219 @@
+import turtle
+
+# set up turtle screen
+screen = turtle.Screen()
+screen.bgcolor("black")
+
+# create a turtle instance
+t = turtle.Turtle()
+t.speed(0)
+
+# Draw the night sky
+t.penup()
+t.goto(-400, -100)
+t.pendown()
+t.color("navyblue")
+t.begin_fill()
+for _ in range(2):
+    t.forward(800)
+    t.left(90)
+    t.forward(500)
+    t.left(90)
+t.end_fill()
+
+# Draw moon and beams
+pen_turtle = turtle.Turtle()
+pen_turtle.speed(0)  # Set the drawing speed
+pen_turtle.shape("blank")
+
+def draw_circle(t, x, y, radius, color):
+  t.penup()
+  t.goto(x, y - radius)
+  t.pendown()
+  t.color(color)
+  t.begin_fill()
+  t.circle(radius)
+  t.end_fill()
+
+def draw_moon_beams(t, x, y, color, outer_radius, beam_length):
+  t.seth(0)
+  t.goto(x, y)
+  t.up()
+  t.color(color)
+  for _ in range(6): # 6 beams
+      t.forward(outer_radius - beam_length)
+      t.down()
+      t.forward(beam_length)
+      t.up()
+      t.backward(outer_radius)
+      t.left(360/6)
+
+draw_circle(pen_turtle, -200, 210, 40, "white") # Location of moon and colour
+draw_moon_beams(pen_turtle, -200, 210, "white", 75, 15) # Location of beams and colour
+
+# Draw night cloud
+def draw_cloud(x, y):
+  t.penup()
+  t.goto(x, y)
+  t.pendown()
+  t.color("white") 
+  t.begin_fill()
+  t.circle(45)
+  t.end_fill()
+
+draw_cloud(200, 220) # Draw circles to fill cloud
+draw_cloud(220, 200)
+draw_cloud(230, 200)
+draw_cloud(180, 200)
+
+# Draw the house and choose colour
+def draw_house(x, y):
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+    t.pensize(3)
+    t.color("black", "teal") # (stroke, fill)
+    t.begin_fill()
+    for _ in range(4):
+        t.forward(170)
+        t.left(90)
+    t.end_fill()
+
+draw_house(-100, -100)
+
+# Draw the chimney and choose location and colours
+def draw_chimney(x, y):
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+    t.color("black", "darkblue")
+    t.begin_fill()
+    for _ in range(2):
+        t.forward(40)
+        t.left(90)
+        t.forward(100)
+        t.left(90)
+    t.end_fill()
+
+draw_chimney(20, 130)
+
+# Draw the roof
+def draw_roof(x, y):
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+    t.begin_fill()
+    for _ in range(3):
+        t.forward(225)
+        t.left(120)
+    t.end_fill()
+
+draw_roof(-127, 70)
+
+#Draw windows and choose location of where they are
+def draw_window(x, y):
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+    t.color("black", "white")
+    t.begin_fill()
+    for _ in range(4):
+        t.forward(40)
+        t.left(90)
+    t.end_fill()
+
+# Draw the window cross for the glass on both sides
+def draw_window_cross(x, y):
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+    t.color("black")
+    t.forward(20)
+    t.backward(40)
+    t.forward(20)
+    t.left(90)
+    t.forward(20)
+    t.backward(40)
+
+draw_window(-80, 0)
+draw_window_cross(-60, 20)
+
+draw_window(40, 0)
+draw_window_cross(20, 20)
+
+# Draw the door and choose colour
+def draw_door(x, y):
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+    t.right(90)
+    t.color("darkblue")
+    t.begin_fill()
+    for _ in range(2):
+        t.forward(70)
+        t.left(90)
+        t.forward(50)
+        t.left(90)
+    t.end_fill()
+
+draw_door(10, -97)
+
+# Add the door handle
+def draw_handle(x, y):
+  t.penup()
+  t.goto(x, y)
+  t.pendown()
+  t.color("black")
+  t.begin_fill()
+  t.circle(4)
+  t.end_fill()
+
+draw_handle(-30, -65) # Size and location of handle 
+
+# Draw the nightsky stars
+
+import random
+
+t = turtle.Turtle()
+w = turtle.Screen()
+t.speed(0)
+
+# Give the background color of turtle
+w.bgcolor("black")
+
+# Give color of pen to stars 
+t.color("white")
+
+# draw the stars
+import random
+t = turtle.Turtle()
+w = turtle.Screen()
+t.speed(0)
+w.bgcolor("black")
+t.color("white")
+
+# make the function to draw the stats
+def stars():
+    for i in range(5):
+        t.fd(10)
+        t.right(144)
+
+
+for i in range(100):
+
+    # generate random integer values for x and y
+    x = random.randint(-640, 640)
+    y = random.randint(-330, 330)
+    stars()
+    t.up()
+    t.goto(x, y)
+    t.down()
+
+t.up()
+t.goto(0, 170)
+t.down()
+t.color("white")
+t.begin_fill()
+
+t.hideturtle()
+
